@@ -33,4 +33,25 @@ public class Student {
     public void setGrade(Integer grade) {
         this.grade = grade;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (!Student.class.isAssignableFrom(obj.getClass()))
+            return false;
+
+        final Student other = (Student) obj;
+        if (this.uuid != other.uuid)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + (this.uuid != null ? this.uuid.hashCode() : 0);
+        return hash;
+    }
 }
