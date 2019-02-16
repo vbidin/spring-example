@@ -1,15 +1,15 @@
-package eu.bidin.springexample.validators;
+package eu.bidin.springexample.utilities;
 
 import java.util.UUID;
 import eu.bidin.springexample.exceptions.InvalidUuidException;
 
-public class UuidValidator {
+public class UuidParser {
 
-    public void ValidateUuid(String value) {
+    public UUID Parse(String value) {
         try {
-            UUID uuid = UUID.fromString(value);
+            return UUID.fromString(value);
         } catch (IllegalArgumentException ex) {
-            throw new InvalidUuidException();
+            throw new InvalidUuidException(value);
         }
     }
 }

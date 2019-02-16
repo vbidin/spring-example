@@ -1,14 +1,30 @@
 package eu.bidin.springexample;
 
-import eu.bidin.springexample.entities.Student;
+import eu.bidin.springexample.persistence.MyHashtable;
+import eu.bidin.springexample.validators.StudentValidator;
+import eu.bidin.springexample.utilities.UuidParser;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
-public class Configuration {
+public class SpringExampleConfiguration {
 
     @Bean
-    public Student student() {
-        return new Student(null, "peewee", 3);
+    @Scope("singleton")
+    public MyHashtable myHashtable() {
+        return new MyHashtable();
+    }
+
+    @Bean
+    @Scope("singleton")
+    public UuidParser uuidParser() {
+        return new UuidParser();
+    }
+
+    @Bean
+    @Scope("singleton")
+    public StudentValidator studentValidator() {
+        return new StudentValidator();
     }
 }

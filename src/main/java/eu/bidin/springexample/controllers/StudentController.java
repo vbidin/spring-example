@@ -1,21 +1,52 @@
 package eu.bidin.springexample.controllers;
 
-import java.util.concurrent.atomic.AtomicLong;
+import eu.bidin.springexample.entities.Student;
+import eu.bidin.springexample.utilities.UuidParser;
+import eu.bidin.springexample.validators.StudentValidator;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
-import eu.bidin.springexample.entities.Greeting;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+import java.util.UUID;
 
 @RestController
-public class GreetingController {
+public class StudentController {
 
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
+    private final StudentValidator validator;
+    private final UuidParser parser;
 
-    @RequestMapping("/")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        return new Greeting(counter.incrementAndGet(),
-                String.format(template, name));
+    public StudentController(StudentValidator validator, UuidParser parser) {
+        this.validator = validator;
+        this.parser = parser;
+    }
+
+    @GetMapping("/students/{uuid}")
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<Student> getStudents() {
+        return null;
+    }
+
+    @GetMapping("/students/{uuid}")
+    @ResponseStatus(value = HttpStatus.OK)
+    public Student getStudent(@PathVariable String uuid) {
+        return null;
+    }
+
+    @PostMapping("/students")
+    @ResponseStatus(value = HttpStatus.CREATED)
+    public void createStudent() {
+
+    }
+
+    @PutMapping("/students/{uuid}")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void updateStudent() {
+
+    }
+
+    @DeleteMapping("/students/{uuid}")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void deleteStudent() {
+
     }
 }

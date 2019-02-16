@@ -2,17 +2,14 @@ package eu.bidin.springexample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-public class Application {
+@EnableSwagger2
+public class SpringExampleApplication {
 
 	public static void main(String[] args) {
-		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-		ctx.register(Configuration.class);
-		ctx.refresh();
-
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(SpringExampleApplication.class, args);
 	}
 
 }

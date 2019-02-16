@@ -1,23 +1,25 @@
 package eu.bidin.springexample.controllers;
 
-import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.boot.autoconfigure.web.servlet.error.AbstractErrorController;
+import org.springframework.boot.web.servlet.error.ErrorAttributes;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 @Controller
-public class CustomErrorController implements ErrorController {
+public class CustomErrorController extends AbstractErrorController {
 
-    @RequestMapping("/error")
+    public CustomErrorController(ErrorAttributes errorAttributes) {
+        super(errorAttributes);
+    }
+
+    @RequestMapping(value = "/error", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public String handleError(HttpServletRequest request) {
-        Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
-        Exception exception = (Exception) request.getAttribute("javax.servlet.error.exception");
-        return String.format("<html><body><h2>Error Page</h2><div>Status code: <b>%s</b></div>"
-                        + "<div>Exception Message: <b>%s</b></div><body></html>",
-                statusCode, exception==null? "N/A": exception.getMessage());
+    public Map<String, Object> handleError(HttpServletRequest request) {
+        return super.getErrorAttributes(request, false);
     }
 
     @Override

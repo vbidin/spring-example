@@ -1,4 +1,4 @@
-package eu.bidin.springexample.validation;
+package eu.bidin.springexample.validators;
 
 public class StudentValidator {
 }
