@@ -1,9 +1,7 @@
 package eu.bidin.springexample;
 
 import eu.bidin.springexample.entities.Student;
-import eu.bidin.springexample.persistence.MyHashtable;
-import eu.bidin.springexample.validators.StudentValidator;
-import eu.bidin.springexample.utilities.UuidParser;
+import eu.bidin.persistence.MyHashtable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;

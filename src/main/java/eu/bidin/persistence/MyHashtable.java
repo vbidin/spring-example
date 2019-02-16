@@ -1,4 +1,4 @@
-package eu.bidin.springexample.persistence;
+package eu.bidin.persistence;
 
 import java.lang.Math;
 import java.util.ConcurrentModificationException;

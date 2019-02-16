@@ -5,7 +5,7 @@ import eu.bidin.springexample.exceptions.InvalidUuidException;
 import eu.bidin.springexample.exceptions.StudentModelInvalidException;
 import eu.bidin.springexample.exceptions.StudentNotFoundException;
 import eu.bidin.springexample.models.StudentModel;
-import eu.bidin.springexample.persistence.MyHashtable;
+import eu.bidin.persistence.MyHashtable;
 import eu.bidin.springexample.utilities.UuidParser;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
