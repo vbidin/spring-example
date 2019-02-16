@@ -6,9 +6,12 @@ import eu.bidin.springexample.exceptions.StudentModelInvalidException;
 import eu.bidin.springexample.exceptions.StudentNotFoundException;
 import eu.bidin.springexample.models.StudentModel;
 import eu.bidin.utility.MyHashtable;
+import eu.bidin.utility.HttpResponse;
 import eu.bidin.utility.UuidParser;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -48,7 +51,7 @@ public class StudentController {
 
     @PostMapping("/students")
     @ResponseStatus(value = HttpStatus.CREATED)
-    public void createStudent(@RequestBody StudentModel model) {
+    public ResponseEntity createStudent(@RequestBody StudentModel model) {
         List<String> errors = model.Validate();
         if (!errors.isEmpty())
             throw new StudentModelInvalidException(errors);
@@ -56,6 +59,8 @@ public class StudentController {
         UUID key = UUID.randomUUID();
         Student value = new Student(key, model);
         database.put(key, value);
+
+        return HttpResponse.created(StudentController.class, "getStudent", key.toString());
     }
 
     @PutMapping("/students/{uuid}")
