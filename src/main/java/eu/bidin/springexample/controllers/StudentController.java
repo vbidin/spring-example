@@ -20,7 +20,7 @@ public class StudentController {
         this.parser = parser;
     }
 
-    @GetMapping("/students/{uuid}")
+    @GetMapping("/students")
     @ResponseStatus(value = HttpStatus.OK)
     public List<Student> getStudents() {
         return null;

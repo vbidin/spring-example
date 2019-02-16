@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
-public class SpringExampleConfiguration {
+public class ApplicationConfiguration {
 
     @Bean
     @Scope("singleton")
