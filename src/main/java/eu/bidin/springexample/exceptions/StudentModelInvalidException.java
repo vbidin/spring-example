@@ -8,7 +8,7 @@ import java.util.List;
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
 public class StudentModelInvalidException extends RuntimeException {
 
-    private static final String template = "Student is invalid: %s.";
+    private static final String template = "Invalid student: %s.";
 
     public StudentModelInvalidException(List<String> errors) {
         super(String.format(template, errors == null || errors.isEmpty() ? "N/A" : String.join(", ", errors)));

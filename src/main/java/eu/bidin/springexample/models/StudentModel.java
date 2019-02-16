@@ -13,23 +13,18 @@ public class StudentModel {
     private String name;
     private Integer grade;
 
-    public StudentModel(String name, Integer grade) {
-        this.name = name;
-        this.grade = grade;
-    }
-
     public List<String> Validate() {
         List<String> errors = new ArrayList<String>();
 
         if (name == null)
-            errors.add("Name is required.");
+            errors.add("name is required");
         else if (getNameLength() < MINIMUM_NAME_LENGTH || getNameLength() > MAXIMUM_NAME_LENGTH)
-            errors.add("Name must be between " + MINIMUM_NAME_LENGTH + " and " + MAXIMUM_NAME_LENGTH + " characters long.");
+            errors.add("name must be between " + MINIMUM_NAME_LENGTH + " and " + MAXIMUM_NAME_LENGTH + " characters long");
 
         if (grade == null)
-            errors.add("Grade is required.");
+            errors.add("grade is required");
         else if (grade < MINIMUM_GRADE || grade > MAXIMUM_GRADE)
-            errors.add("Grade must be between " + MINIMUM_GRADE + " and " + MAXIMUM_GRADE + ".");
+            errors.add("grade must be between " + MINIMUM_GRADE + " and " + MAXIMUM_GRADE + "");
 
         return errors;
     }
