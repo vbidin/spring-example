@@ -8,7 +8,7 @@ public class InvalidUuidException extends RuntimeException {
 
     private static final String template = "UUID '%s' is invalid.";
 
-    public InvalidUuidException(String value) {
-        super(String.format(template, value == null ? "null" : value));
+    public InvalidUuidException(String uuid) {
+        super(String.format(template, uuid == null ? "null" : uuid));
     }
 }

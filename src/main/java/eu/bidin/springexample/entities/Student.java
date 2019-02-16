@@ -1,5 +1,7 @@
 package eu.bidin.springexample.entities;
 
+import eu.bidin.springexample.models.StudentModel;
+
 import java.util.UUID;
 
 public class Student {
@@ -12,6 +14,10 @@ public class Student {
         this.uuid = uuid;
         this.name = name;
         this.grade = grade;
+    }
+
+    public Student(UUID uuid, StudentModel model) {
+        this(uuid, model.getName(), model.getGrade());
     }
 
     public UUID getUuid() {

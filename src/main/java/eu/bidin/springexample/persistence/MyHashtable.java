@@ -7,18 +7,20 @@ import java.util.NoSuchElementException;
 
 /**
  * Represents a hash table, a collection made of key-value pairs, that enables O(1) retrieval of collection elements.
- * @author Vedran Biđin
+ *
  * @param <K> key type
  * @param <V> value type
+ * @author Vedran Biđin
  * @version 1.0
  */
-public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> {
+public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K, V>> {
 
     /**
      * Represents one key-value pair of a hash table.
-     * @author Vedran Biđin
+     *
      * @param <K> key type
      * @param <V> value type
+     * @author Vedran Biđin
      * @version 1.0
      */
     public static class TableEntry<K, V> {
@@ -41,7 +43,8 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
         /**
          * Creates a table entry using specified {@code key}, {@code value}, and {@code entry}.
-         * @param key {@link #key}
+         *
+         * @param key   {@link #key}
          * @param value {@link #value}
          * @param entry {@link #next}
          * @throws IllegalArgumentException if key is {@code null}
@@ -57,6 +60,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
         /**
          * Returns key.
+         *
          * @return {@link #key}
          */
         public K getKey() {
@@ -65,6 +69,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
         /**
          * Returns value.
+         *
          * @return {@link #value}
          */
         public V getValue() {
@@ -73,6 +78,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
         /**
          * Sets value.
+         *
          * @param value {@link #value}
          */
         public void setValue(V value) {
@@ -81,6 +87,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
         /**
          * Returns a {@link String} representation of this key-value pair.
+         *
          * @return {@link String} representation of this key-value pair
          */
         public String toString() {
@@ -111,6 +118,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
     /**
      * Creates a hash table with specified number of slots.
+     *
      * @param capacity number of slots
      * @throws IllegalArgumentException if {@code capacity} < 1
      */
@@ -129,7 +137,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
         }
 
         this.size = 0;
-        this.table = (TableEntry<K, V>[])new TableEntry[this.capacity];
+        this.table = (TableEntry<K, V>[]) new TableEntry[this.capacity];
     }
 
     /**
@@ -141,6 +149,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
     /**
      * Returns current number of elements in the collection.
+     *
      * @return number of elements in the collection
      */
     public int size() {
@@ -149,6 +158,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
     /**
      * Returns {@link #capacity}
+     *
      * @return {@link #capacity}
      */
     public int getCapacity() {
@@ -157,6 +167,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
     /**
      * Checks if collection is empty.
+     *
      * @return true: if {@link #size} == 0,
      * <br>    false: otherwise
      */
@@ -166,6 +177,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
     /**
      * Returns index (slot) of the collection for specified key.
+     *
      * @param key key value
      * @return index of specified key
      */
@@ -175,6 +187,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
     /**
      * Returns the value of a pair with the specified key.
+     *
      * @param key key value
      * @return value belonging to specified key
      * <br>    if no matching key is found, returns null
@@ -197,7 +210,8 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
     /**
      * Adds a new element with specified key and value to the collection.
-     * @param key key of the key-value pair
+     *
+     * @param key   key of the key-value pair
      * @param value value of the key-value pair
      * @throws IllegalArgumentException if key is {@code null}
      */
@@ -236,6 +250,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
     /**
      * Removes element with matching key from the collection (if it exists).
+     *
      * @param key key of key-value pair to remove
      */
     public void remove(K key) {
@@ -272,6 +287,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
     /**
      * Checks if collection contains a pair with specified key.
+     *
      * @param key key of the key-value pair
      * @return true: if key was found in the collection
      * <br>    false: otherwise
@@ -294,6 +310,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
     /**
      * Checks if collection contains a pair with specified value.
+     *
      * @param value value of the key-value pair
      * @return true: if value was found in the collection
      * <br>    false: otherwise
@@ -318,6 +335,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
     /**
      * Returns a {@link String} representation of this hash table.
+     *
      * @return {@link String} representation of this hash table
      */
     public String toString() {
@@ -361,7 +379,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
         this.size = 0;
         this.capacity *= 2;
-        this.table = (TableEntry<K, V>[])new TableEntry[this.capacity];
+        this.table = (TableEntry<K, V>[]) new TableEntry[this.capacity];
 
         for (TableEntry<K, V> entry : oldTable) {
             while (entry != null) {
@@ -391,6 +409,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
     /**
      * An iterator that can iterate through a {@link MyHashtable} collection.
+     *
      * @author Vedran Biđin
      * @version 1.0
      */
@@ -420,6 +439,7 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
         /**
          * Checks if iterator has any elements left to iterate through.
+         *
          * @throws ConcurrentModificationException if collection has changed during iteration
          */
         @Override
@@ -432,15 +452,16 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
 
         /**
          * Gets the next element of the iteration.
+         *
          * @throws ConcurrentModificationException if collection has changed during iteration
-         * @throws NoSuchElementException if no more elements remain to be iterated through
+         * @throws NoSuchElementException          if no more elements remain to be iterated through
          */
         @Override
         public TableEntry<K, V> next() {
             if (modificationCount != MyHashtable.this.modificationCount) {
                 throw new ConcurrentModificationException();
             }
-            if(!hasNext()) {
+            if (!hasNext()) {
                 throw new NoSuchElementException();
             }
 
@@ -466,8 +487,9 @@ public class MyHashtable<K, V> implements Iterable<MyHashtable.TableEntry<K,V>> 
         /**
          * Removes the current element from the collection.
          * This is the only way to safely change the collection during an iteration. Cannot be called twice on the same element.
+         *
          * @throws ConcurrentModificationException if collection has changed during iteration
-         * @throws IllegalStateException if method was called twice on the same element
+         * @throws IllegalStateException           if method was called twice on the same element
          */
         @Override
         public void remove() {
