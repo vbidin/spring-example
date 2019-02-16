@@ -1,7 +1,7 @@
 package eu.bidin.springexample;
 
 import eu.bidin.springexample.entities.Student;
-import eu.bidin.persistence.MyHashtable;
+import eu.bidin.utility.MyHashtable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;

@@ -1,4 +1,4 @@
-package eu.bidin.springexample.utilities;
+package eu.bidin.utility;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package eu.bidin.persistence;
+package eu.bidin.utility;
 
 import java.lang.Math;
 import java.util.ConcurrentModificationException;
