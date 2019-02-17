@@ -18,5 +18,5 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework:spring-web'
 	compile "io.springfox:springfox-swagger2:2.9.2"
-	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.0.2'
+	compile "io.springfox:springfox-swagger-ui:2.9.2"
 }
